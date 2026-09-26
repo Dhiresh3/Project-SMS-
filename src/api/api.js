@@ -4,6 +4,10 @@ const api = axios.create({
   baseURL: 'http://localhost:8080/api'
 });
 
+// Auth
+export const signupUser = (data) => api.post('/auth/signup', data);
+export const loginUser  = (data) => api.post('/auth/login', data);
+
 // Students
 export const getStudents = () => api.get('/students');
 export const getStudent = (id) => api.get(`/students/${id}`);

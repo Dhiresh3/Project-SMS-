@@ -29,7 +29,24 @@ export default function Sidebar() {
           </NavLink>
         ))}
       </nav>
-      <div className="sidebar-footer">Student Management System</div>
+      <div className="sidebar-footer">
+        <button 
+          onClick={() => {
+            localStorage.removeItem('user');
+            window.location.href = '/login';
+          }}
+          style={{
+            background: 'none', border: 'none', color: '#ef4444', 
+            cursor: 'pointer', width: '100%', padding: '10px', 
+            fontWeight: 600, fontSize: '14px', marginTop: '10px',
+            borderRadius: '8px', transition: 'background 0.2s'
+          }}
+          onMouseOver={(e) => e.currentTarget.style.background = '#fee2e2'}
+          onMouseOut={(e) => e.currentTarget.style.background = 'none'}
+        >
+          🚪 Logout
+        </button>
+      </div>
     </aside>
   );
 }

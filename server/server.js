@@ -7,6 +7,7 @@ const app = express();
 app.use(cors({ origin: ['http://localhost:5173', 'http://127.0.0.1:5173'] }));
 app.use(express.json());
 
+app.use('/api/auth',        require('./routes/auth'));
 app.use('/api/students',    require('./routes/students'));
 app.use('/api/courses',     require('./routes/courses'));
 app.use('/api/enrollments', require('./routes/enrollments'));

@@ -9,3 +9,18 @@
   background: #f1f5f9;
   min-height: 100vh;
 }
+
+.auth-layout-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+.auth-main {
+  flex: 1;
+  background: #f1f5f9;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
