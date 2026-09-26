@@ -1,4 +1,4 @@
-const router = require('express').Router();
+5const router = require('express').Router();
 const db = require('../db');
 
 router.get('/stats', async (_req, res) => {

@@ -4,9 +4,11 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const dbConfig = {
   host:     process.env.DB_HOST || 'localhost',
+  port:     process.env.DB_PORT || 3306,
   user:     process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'root',
   database: process.env.DB_NAME || 'student_db',
+  ssl:      { rejectUnauthorized: false },
   waitForConnections: true,
   connectionLimit: 10,
 };
@@ -17,8 +19,10 @@ async function initDB() {
   try {
     connection = await mysql.createConnection({
       host: dbConfig.host,
+      port: dbConfig.port,
       user: dbConfig.user,
       password: dbConfig.password,
+      ssl: dbConfig.ssl,
     });
     await connection.query(`CREATE DATABASE IF NOT EXISTS \`${dbConfig.database}\`;`);
     await connection.query(`USE \`${dbConfig.database}\`;`);
