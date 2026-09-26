@@ -18,5 +18,11 @@ app.use('/api/dashboard',   require('./routes/dashboard'));
 app.get('/api/health', (_req, res) => res.json({ status: 'ok', message: 'SMS API is running 🎓' }));
 app.get('/', (_req, res) => res.json({ status: 'ok', message: 'SMS API is running 🎓' }));
 
-const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => console.log(` SMS Backend Server running on http://localhost:${PORT}`));
+module.exports = app;
+
+if (require.main === module) {
+  const PORT = process.env.PORT || 8080;
+  app.listen(PORT, () => {
+    console.log(` SMS Backend Server running on http://localhost:${PORT}`);
+  });
+}
